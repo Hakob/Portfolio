@@ -1,4 +1,3 @@
-{% load cms_tags menu_tags sekizai_tags %}
 <!doctype html>
 <html>
     <head>
@@ -26,16 +25,14 @@
                 width: 20%;
             }
         </style>
-        {% render_block "css" %}
+
     </head>
     <body>
-        {% cms_toolbar %}
+
         <div class="container">
             <ul class="nav">
-                {% show_menu 0 100 100 100 %}
             </ul>
             {% block content %}{% endblock content %}
         </div>
-        {% render_block "js" %}
     </body>
 </html>
