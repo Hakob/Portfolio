@@ -3,5 +3,5 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url('^admin/', admin.site.urls),
-    url('^', include('apps.cms_first.urls'))
+    url('^', include('apps.portfolio.urls'))
 ]

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} | FullWidth Page{% endblock title %}
+
+{% block content %}
+    <!-- Main -->
+    <div id="main">
+    {% include 'intro.html' %}
+    {% include 'work.html' %}
+    {% include 'about.html' %}
+    {% include 'contact.html' %}
+    </div>
+
+{% endblock content %}
