@@ -18,3 +18,12 @@ class GeneralView(View):
             'random_bg': parsed_json['urls']['raw']
         }
         return render(request, 'index.html', context=context)
+
+
+class GenerallyView(View):
+    def get(self, request):
+        context = {
+            'random_bg': 'https://source.unsplash.com/random/1920x1080',
+        }
+        return render(request, 'index.html', context=context)
+

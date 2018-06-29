@@ -18,13 +18,18 @@ PROJECT_DIR = os.path.join(BASE_DIR, 'apps')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
-config = configparser.ConfigParser()
-config.read(os.path.join(BASE_DIR, 'config/keys.ini'))
+try:
+	config = configparser.ConfigParser()
+	config.read(os.path.join(BASE_DIR, 'config/keys.ini'))
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['default']['django_secret']
+	# SECURITY WARNING: keep the secret key used in production secret!
+	SECRET_KEY = config['default']['django_secret']
 
-UNSPLASH_API_KEY = config['default']['unsplash_api']
+	UNSPLASH_API_KEY = config['default']['unsplash_api']
+
+except Exception as e:
+	SECRET_KEY = 'django.middleware.security.SecurityMiddleware'
+	UNSPLASH_API_KEY = None
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
