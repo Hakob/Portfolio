@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import configparser
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -18,9 +18,13 @@ PROJECT_DIR = os.path.join(BASE_DIR, 'apps')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+config = configparser.ConfigParser()
+config.read(os.path.join(BASE_DIR, 'config/keys.ini'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@9j--sby)euw#=s^q5!se+8r1t&^5gzd)rgg0vu04e+1dft$57'
+SECRET_KEY = config['default']['django_secret']
+
+UNSPLASH_API_KEY = config['default']['unsplash_api']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

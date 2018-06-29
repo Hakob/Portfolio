@@ -1,7 +1,23 @@
 {% extends "base.html" %}
 
 {% block title %}{{ block.super }} | FullWidth Page{% endblock title %}
-
+{% block css %}
+    <style>
+		#bg:after {
+			-moz-transform: scale(1.125);
+			-webkit-transform: scale(1.125);
+			-ms-transform: scale(1.125);
+			transform: scale(1.125);
+			-moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out;
+			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
+			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
+			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
+            background-size: cover;
+            background: url("{{ random_bg }}") no-repeat center;
+            z-index: 1;
+		}
+    </style>
+{% endblock %}
 {% block content %}
     <!-- Main -->
     <div id="main">
