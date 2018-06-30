@@ -2,3 +2,4 @@ django
 pytz
 gunicorn
 django-heroku
+whitenoise
